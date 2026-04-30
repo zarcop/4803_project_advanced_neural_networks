@@ -13,6 +13,7 @@ class LeNet5(nn.Module):
         self.fully_connected_layer = nn.Linear()
         self.flat_layer = nn.Flatten()
         self.fully_connected_layer_2 = nn.Linear()
+        self.output_laer = nn.
         convolutional_block = nn.Sequential(
             self.convolutional_layer_1,
             self.pooling_layer,
