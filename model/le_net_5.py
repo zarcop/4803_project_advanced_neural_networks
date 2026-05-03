@@ -7,7 +7,7 @@ from torch import nn
 # this works both with CIFAR-10 and MNIST datasets.
 
 class LeNet5(nn.Module):
-    def init(self, in_channels = 32, k_classes = 10): # probably going to be 10 with CIFAR-10
+    def __init__(self, in_channels = 32, k_classes = 10): # probably going to be 10 with CIFAR-10
         #convolutional block
         self.convolutional_block = nn.Sequential(
             nn.Conv2d(in_channels, 6, kernel_size=5, padding=2),
