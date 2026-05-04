@@ -2,7 +2,6 @@ import torch
 from torch import nn
 
 class Embedding_Layer(nn.Module):
-
     def __init__(self, in_channels, patch_size, embedded_dim) -> None:
         super().__init__()
         self.patch_size = patch_size

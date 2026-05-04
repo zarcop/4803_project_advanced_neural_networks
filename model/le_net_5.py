@@ -11,12 +11,12 @@ class LeNet5(nn.Module):
         #convolutional block
         super.__init__()
         self.convolutional_block = nn.Sequential(
-            nn.Conv2d(in_channels, 6, kernel_size=5, padding=2),
+            nn.Conv2d(in_channels, 6, kernel_size=5, stride = 1),
             nn.Tanh(),
             nn.AvgPool2d(kernel_size=2, stride=2),
             nn.Conv2d(6, 16, kernel_size=5),
             nn.Tanh(),
-            nn.AvgPool2d(kernel_size=2, stride=2),
+            nn.AvgPool2d(kernel_size=2, stride=1),
             nn.AdaptiveAvgPool2d((5, 5)),
             nn.Flatten()
         )
