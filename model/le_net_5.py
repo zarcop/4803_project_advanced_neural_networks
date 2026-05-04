@@ -9,6 +9,7 @@ from torch import nn
 class LeNet5(nn.Module):
     def __init__(self, in_channels = 32, k_classes = 10): # probably going to be 10 with CIFAR-10
         #convolutional block
+        super.__init__()
         self.convolutional_block = nn.Sequential(
             nn.Conv2d(in_channels, 6, kernel_size=5, padding=2),
             nn.Tanh(),
@@ -27,7 +28,7 @@ class LeNet5(nn.Module):
             nn.Tanh(),
             nn.Linear(84, k_classes)
         )
-    def forward_pass(self,x):
+    def forward(self,x):
         x = self.convolutional_block(x)
         x = self.fully_connected_block(x)
         return x

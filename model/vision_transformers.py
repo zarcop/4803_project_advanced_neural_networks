@@ -34,12 +34,11 @@ class Transformer_Block(nn.Module):
     def forward(self, x):
 
         #literally from the medium paper
-
         attention_result, _ = self.attention_block(self.norm_layer1(x), self.norm_layer1(x), self.norm_layer1(x))
         # embedding  + attention(norm(embedding))
-        x = x + attention_result\
+        x = x + attention_result
         # embedding + attention(norm(embedding)) + mlp (norm(embedding))
-        x = x + self(self.norm_layer2(x))
+        x = x + self.mlp_block(self.norm_layer2(x))
         return x
 
 
@@ -76,7 +75,7 @@ class Vision_Transformers(nn.Module):
         #expand the class tokens to the batch size and prepend them to the image patches
         class_tokens = self.class_token.expand(B,-1,-1)
         x = torch.cat((class_tokens, x), dim = 1)
-        x = x + self.positional_encoding(x)
+        x = x + self.positional_encoding
         #dropout to reduce the dimensions:
         x = self.positional_dropout(x)
         # transformer encoding
