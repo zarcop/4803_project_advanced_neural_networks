@@ -56,6 +56,7 @@ drouout
 
 class Vision_Transformers(nn.Module):
     def __init__(self, img_size, patch_size, in_channels, k_classes, embedded_dim, depth, num_heads, mlp_ratio, dropout):
+        super().__init__()
         self.patch_embedding = Embedding_Layer(in_channels, patch_size, embedded_dim)
         num_patches = (img_size// patch_size) ** 2
         # adding the class tokens to the embeddings
