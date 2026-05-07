@@ -1,9 +1,7 @@
 torch
-wandb
-argparse
-pandas
+torchvision
 numpy
+pandas
 matplotlib
-os
-subprocess
-zipfile
+scikit-learn
+Pillow
